@@ -1,0 +1,21 @@
+{
+  "name": "transduce-with-generators",
+  "version": "0.0.2",
+  "license": "MIT",
+  "scripts": {
+    "build:es6": "tsc",
+    "build:es5": "tsc -p tsconfig.es5.json",
+    "build": "npm run build:es6 && npm run build:es5",
+    "test-server": "parcel browser-test/index.html"
+  },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ],
+  "dependencies": {
+    "typescript": "^3.7"
+  },
+  "devDependencies": {
+    "cypress": "^3.6.1",
+    "parcel-bundler": "^1.12.3"
+  }
+}
