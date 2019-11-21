@@ -53,7 +53,7 @@ T.subscribe(debounceCounterHandler, localDebounce(debounceStream1));
 T.subscribe(debounceCounterTrailingHandler, localDebounceTrailing(debounceStream2));
 /* Shuffle */
 var shuffleInputEl = document.getElementById('shuffle-input');
-var shuffleOutputEl = document.getElementById('shuffle-output');
+var shuffleOutputEl = document.getElementById(' shuffle-output');
 var shuffleStream = T.fromDomEvent('keydown', shuffleInputEl);
 function shuffleHandler(_a) {
     var _b = __read(_a, 2), a = _b[0], b = _b[1];
@@ -78,43 +78,3 @@ var transducer = T.transduce(T.map(function (event) { return event.key; }), T.ma
     }
 }), T.chunk(2), T.map(function (arr) { return arr.reverse(); }));
 T.subscribe(shuffleHandler, transducer(shuffleStream));
-// T.transduce(
-//       T.map( ( a: number ) => a++),
-// )
-// let button = document.getElementById('button')
-// async function main() {
-//   let counter = 0
-//   let foo = T.transduce(
-//     T.map( ( a: number ) => counter++),
-//     T.delay( 1000 ),
-//     T.map( ( x: number) => x + 2),
-//     T.frame( 3, 3 ),
-//     T.map( x => (console.log(x),x) ),
-//   )
-//   let clicky = T.transduce(
-//     T.debounce( 1000 )
-//   )
-//   // for await (let i of foo( [1,2,3] ) ) {
-//   //   console.log( i )
-//   // }
-//   let goldenMeanSequence = ( quantity: number ) => T.transduce(
-//     T.type<number>(),
-//     T.take( quantity ),
-//     T.frame( 2, 1 ),
-//     T.map( ( [a,b]  ) => a/b )
-//   )( fib() )   
-//   function* fib ( a = 0, b = 1): Iterable<number> {
-//     yield a
-//     yield* fib( b, a+b )
-//   }
-//   T.subscribe( bar, goldenMeanSequence(25)  )
-//   let stream = T.fromDomEvent( 'click' , button! )
-//   function bar( a: unknown ) {
-//     console.log( a ) 
-//   }
-//   T.subscribe( bar, clicky( stream ) )
-//   T.subscribe( bar, T.transduce( T.delay( 1000 ) ) ( T.range( 0, 10 ) ) )
-// }
-// main()
-// type Foo<A> = [A,A]
-// let a = [ 1 , 2 ] as Foo<number>
