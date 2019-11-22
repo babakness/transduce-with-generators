@@ -1,4 +1,4 @@
-import * as T from '../es6/async'
+import * as T from '../src/async'
 
 let triggerButton = document.getElementById( 'trigger' )
 let debounceCounterEl = document.getElementById( 'debounce-counter' )

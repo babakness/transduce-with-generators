@@ -4,3 +4,5 @@ node_modules
 .backup
 .history
 dist
+es5
+es6
